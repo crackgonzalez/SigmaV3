@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SigmaV3</string>
+    <string name="app_nombre">Sigma</string>
+    <string name="texto_inicia_sesion">Inicia Sesion con Google</string>
 </resources>
