@@ -3,4 +3,5 @@
     <string name="app_nombre">Sigma</string>
     <string name="texto_inicia_sesion">Inicia Sesion con Google</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="tab_servicios">Servicios</string>
 </resources>
