@@ -130,7 +130,7 @@ public class IniciarSesionActivity extends BaseActivity implements View.OnClickL
     }
 
     private void guardarNuevoUsuario(String uid, String nombre, String email) {
-        Usuario usuario = new Usuario(nombre, email, uid);
+        Usuario usuario = new Usuario(nombre, email);
         mDatabase.child(USUARIOS).child(uid).setValue(usuario);
     }
 }
