@@ -2,6 +2,7 @@ package com.crackgonzalez.sigmav3;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -29,6 +30,8 @@ public class PrincipalActivity extends BaseActivity implements View.OnClickListe
 
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
+
+    public FloatingActionButton mFabAddServicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +83,12 @@ public class PrincipalActivity extends BaseActivity implements View.OnClickListe
 
         mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mPagerAdapter);
+
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        mFabAddServicio = findViewById(R.id.fab_crear_servicio);
+        mFabAddServicio.setOnClickListener(this);
     }
 
     @Override
@@ -98,7 +105,10 @@ public class PrincipalActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        int i = v.getId();
+        if (i == R.id.fab_crear_servicio) {
+            iniciarActividadCrearServicio();
+        }
     }
 
     @Override
@@ -134,5 +144,10 @@ public class PrincipalActivity extends BaseActivity implements View.OnClickListe
         Intent intentActividadLogin = new Intent(this,IniciarSesionActivity.class);
         startActivity(intentActividadLogin);
         finish();
+    }
+
+    private void iniciarActividadCrearServicio(){
+        Intent intentActividadCrearServicio = new Intent(this,CrearServicioActivity.class);
+        startActivity(intentActividadCrearServicio);
     }
 }
