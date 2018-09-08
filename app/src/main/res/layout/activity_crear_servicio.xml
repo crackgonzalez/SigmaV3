@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".CrearServicioActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/edt_sigla"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/servicio"/>
+    <EditText
+        android:id="@+id/edt_his"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/his"/>
+    <EditText
+        android:id="@+id/edt_hts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hts"/>
+    <EditText
+        android:id="@+id/edt_carga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/carga"/>
+    <EditText
+        android:id="@+id/edt_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/fecha"/>
+    <Button
+        android:id="@+id/btn_agregar_servicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agregar" />
+
+</LinearLayout>

@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">SigmaV3</string>
+    <string name="app_name">Sigma</string>
     <string name="app_nombre">Sigma</string>
     <string name="texto_inicia_sesion">Inicia Sesion con Google</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="tab_servicios">Servicios</string>
+    <string name="servicio">Servicio</string>
+    <string name="his">Horario Inicio Servicio</string>
+    <string name="hts">Horario Termino Servicio</string>
+    <string name="carga">Carga</string>
+    <string name="fecha">Fecha</string>
+    <string name="agregar">Agregar</string>
 </resources>
