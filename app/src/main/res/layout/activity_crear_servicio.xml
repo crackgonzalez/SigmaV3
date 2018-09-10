@@ -7,35 +7,150 @@
     android:orientation="vertical"
     tools:context=".CrearServicioActivity">
 
-    <EditText
-        android:id="@+id/edt_sigla"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/servicio"/>
-    <EditText
-        android:id="@+id/edt_his"
+        android:gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="@dimen/margin_izq_icon"
+            android:src="@mipmap/ic_libro"/>
+
+        <EditText
+            android:id="@+id/edt_sigla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="text"
+            android:hint="@string/servicio"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/his"/>
-    <EditText
-        android:id="@+id/edt_hts"
+        android:gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="@dimen/margin_izq_icon"
+            android:src="@mipmap/ic_his"/>
+
+        <EditText
+            android:id="@+id/edt_his"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="datetime"
+            android:hint="@string/his"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hts"/>
-    <EditText
-        android:id="@+id/edt_carga"
+        android:gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="@dimen/margin_izq_icon"
+            android:src="@mipmap/ic_hts"/>
+
+        <EditText
+            android:id="@+id/edt_hts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="datetime"
+            android:hint="@string/hts"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/carga"/>
-    <EditText
-        android:id="@+id/edt_fecha"
+        android:gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="@dimen/margin_izq_icon"
+            android:src="@mipmap/ic_carga"/>
+
+        <EditText
+            android:id="@+id/edt_carga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="datetime"
+            android:hint="@string/carga"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/fecha"/>
-    <Button
-        android:id="@+id/btn_agregar_servicio"
+        android:gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="@dimen/margin_izq_icon"
+            android:src="@mipmap/ic_calendario"/>
+
+        <EditText
+            android:id="@+id/edt_fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="date"
+            android:hint="@string/fecha"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/agregar" />
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|center_vertical">
+
+        <Button
+            android:id="@+id/btn_agregar_servicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorHighlight"
+            android:text="Agregar" />
+
+    </LinearLayout>
 
 </LinearLayout>
