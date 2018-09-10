@@ -47,6 +47,31 @@ public class CrearServicioActivity extends BaseActivity implements View.OnClickL
         mEdtCarga = findViewById(R.id.edt_carga);
         mEdtFecha = findViewById(R.id.edt_fecha);
 
+        mEdtHis.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                mostrarTimePickerDialog(hasFocus, mEdtHis);
+            }
+        });
+        mEdtHts.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                mostrarTimePickerDialog(hasFocus, mEdtHts);
+            }
+        });
+        mEdtCarga.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                mostrarTimePickerDialog(hasFocus, mEdtCarga);
+            }
+        });
+        mEdtFecha.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                mostrarDatePickerDialog(hasFocus, mEdtFecha);
+            }
+        });
+
         mBtnAgregarServicio = findViewById(R.id.btn_agregar_servicio);
         mBtnAgregarServicio.setOnClickListener(this);
 
