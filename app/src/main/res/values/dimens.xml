@@ -5,4 +5,5 @@
     <dimen name="app_nombre_dimen">32dp</dimen>
     <dimen name="margin_bottom_google_button">30dp</dimen>
     <dimen name="margin_bottom_fab_crear_servicio">16dp</dimen>
+    <dimen name="padding_recyclerview">5dp</dimen>
 </resources>

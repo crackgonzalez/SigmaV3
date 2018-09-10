@@ -3,6 +3,8 @@ package com.crackgonzalez.sigmav3;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,7 +48,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public long fechaLong(String fechaString){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
-        long fechaLong = 0;
+        long fechaLong = -1;
         try {
             Date fecha  = sdf.parse(fechaString+" 03:00");
             fechaLong = fecha.getTime();
@@ -57,10 +59,15 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public double horaDecimal(String horaString){
-        String[] partes = horaString.split(":");
-        double hora = Double.parseDouble(partes[0]);
-        double minutos = Double.parseDouble(partes[1]);
-        double resultado = Math.round((hora+(minutos/60))*100.0)/100.0;
+        double resultado =-1;
+        try {
+            String[] partes = horaString.split(":");
+            double hora = Double.parseDouble(partes[0]);
+            double minutos = Double.parseDouble(partes[1]);
+            resultado = Math.round((hora + (minutos / 60)) * 100.0) / 100.0;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return resultado;
     }
 

@@ -9,8 +9,11 @@ import android.widget.EditText;
 
 import com.crackgonzalez.sigmav3.modelos.Servicio;
 import com.crackgonzalez.sigmav3.modelos.Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -21,7 +24,7 @@ import java.util.Map;
 public class CrearServicioActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String USUARIOS = "usuarios";
-    private static final String USUARIO = "usuario";
+    private static final String USUARIOSERVICIOS = "usuario-servicios";
     private static final String SERVICIOS = "servicios";
 
     private EditText mEdtSigla;
@@ -55,44 +58,39 @@ public class CrearServicioActivity extends BaseActivity implements View.OnClickL
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_agregar_servicio) {
-            enviarServicio();
+            crearServicio();
         }
     }
 
-    private void crearServicio(String sigla, double his, double hts, double carga, long fecha){
-        String servicioKey = mDatabase.child(SERVICIOS).push().getKey();
-        String usuarioKey = obtenerUid();
+    private void crearServicio(){
 
-        Servicio servicio = new Servicio(sigla,his,hts,carga,fecha);
-
-        mDatabase.child(SERVICIOS).child(servicioKey).setValue(servicio);
-        mDatabase.child(SERVICIOS).child(servicioKey).child(USUARIO).child(usuarioKey).setValue(true);
-        mDatabase.child(USUARIOS).child(usuarioKey).child(SERVICIOS).child(servicioKey).setValue(true);
-
-    }
-
-    private void enviarServicio(){
-        String usuarioKey = obtenerUid();
         final String sigla = mEdtSigla.getText().toString();
-        final double his = horaDecimal(mEdtHis.getText().toString());
-        final double hts = horaDecimal(mEdtHts.getText().toString());
-        final double carga = horaDecimal(mEdtCarga.getText().toString());
-        final long fecha = fechaLong(mEdtFecha.getText().toString());
+        double his = horaDecimal(mEdtHis.getText().toString());
+        double hts = horaDecimal(mEdtHts.getText().toString());
+        double carga = horaDecimal(mEdtCarga.getText().toString());
+        long fecha = fechaLong(mEdtFecha.getText().toString());
+        String uid = obtenerUid();
 
-        mDatabase.child(USUARIOS).child(usuarioKey).addListenerForSingleValueEvent(new ValueEventListener() {
+        Servicio servicio = new Servicio(sigla,his,hts,carga,fecha,uid);
+
+        Map<String, Object> servicioValues = servicio.servicioMap();
+        Map<String, Object> childUpdates = new HashMap<>();
+
+        String key = mDatabase.child(SERVICIOS).push().getKey();
+
+        childUpdates.put(SERVICIOS+ "/" + key, servicioValues);
+        childUpdates.put(USUARIOSERVICIOS+ "/" + uid + "/" + key, servicioValues);
+
+        mDatabase.updateChildren(childUpdates).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                if (usuario != null) {
-                    crearServicio(sigla,his,hts,carga,fecha);
-                    mostrarMensajeToastLargo(CrearServicioActivity.this,"Servicio "+ sigla + " Agregado");
-                }
+            public void onSuccess(Void aVoid) {
+                mostrarMensajeToastLargo(getBaseContext(),"El servicio "+ sigla + " fue agregado correctamente");
                 finish();
             }
-
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                mostrarMensajeToastLargo(CrearServicioActivity.this, "El servicio no pudo ser agregado");
+            public void onFailure(@NonNull Exception e) {
+                mostrarMensajeToastLargo(getBaseContext(),"Ocurrio un error, verifique los datos ingresados");
             }
         });
     }

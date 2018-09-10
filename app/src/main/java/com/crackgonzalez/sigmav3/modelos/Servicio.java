@@ -16,11 +16,12 @@ public class Servicio {
     public long fecha;
     public double recargo;
     public double permanencia;
+    public String uid;
 
     public Servicio() {
     }
 
-    public Servicio(String sigla, double his, double hts, double carga, long fecha) {
+    public Servicio(String sigla, double his, double hts, double carga, long fecha, String uid) {
         this.sigla = sigla;
         this.his = his;
         this.hts = hts;
@@ -28,20 +29,22 @@ public class Servicio {
         this.fecha = fecha;
         this.recargo = calcularRecargo();
         this.permanencia = calcularPermanencia();
+        this.uid = uid;
     }
 
     @Exclude
     public Map<String, Object> servicioMap() {
-        HashMap<String, Object> servicio = new HashMap<>();
-        servicio.put("sigla", sigla);
-        servicio.put("his", his);
-        servicio.put("hts", hts);
-        servicio.put("carga", carga);
-        servicio.put("fecha", fecha);
-        servicio.put("recargo", recargo);
-        servicio.put("permanencia", permanencia);
+        HashMap<String, Object> resultado = new HashMap<>();
+        resultado.put("sigla", sigla);
+        resultado.put("his", his);
+        resultado.put("hts", hts);
+        resultado.put("carga", carga);
+        resultado.put("fecha", fecha);
+        resultado.put("recargo", recargo);
+        resultado.put("permanencia", permanencia);
+        resultado.put("uid", uid);
 
-        return servicio;
+        return resultado;
     }
 
     private double calcularPermanencia(){

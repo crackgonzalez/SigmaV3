@@ -150,4 +150,8 @@ public class PrincipalActivity extends BaseActivity implements View.OnClickListe
         Intent intentActividadCrearServicio = new Intent(this,CrearServicioActivity.class);
         startActivity(intentActividadCrearServicio);
     }
+
+    public FloatingActionButton getFab(){
+        return mFabAddServicio;
+    }
 }
