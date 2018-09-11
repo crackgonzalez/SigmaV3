@@ -10,4 +10,5 @@
     <string name="carga">Carga</string>
     <string name="fecha">Fecha</string>
     <string name="agregar">Agregar</string>
+    <string name="menu_eliminar_cardview">Eliminar Servicio</string>
 </resources>

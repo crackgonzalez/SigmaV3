@@ -2,6 +2,8 @@ package com.crackgonzalez.sigmav3.viewholders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crackgonzalez.sigmav3.R;
@@ -20,6 +22,7 @@ public class ServicioViewHolder extends RecyclerView.ViewHolder {
     private TextView mTxvRecargo;
     private TextView mTxvPermanencia;
     private TextView mTxvFecha;
+    public ImageView mImvMenuCardView;
 
     public ServicioViewHolder(View itemView) {
         super(itemView);
@@ -31,6 +34,7 @@ public class ServicioViewHolder extends RecyclerView.ViewHolder {
         mTxvRecargo = itemView.findViewById(R.id.txv_recargo);
         mTxvPermanencia = itemView.findViewById(R.id.txv_permanencia);
         mTxvFecha = itemView.findViewById(R.id.txv_fecha);
+        mImvMenuCardView = itemView.findViewById(R.id.imv_menu_card_view);
     }
 
     public void bindToServicio(Servicio servicio) {
