@@ -21,7 +21,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".PrincipalActivity" />
-        <activity android:name=".CrearServicioActivity"
+        <activity
+            android:name=".CrearServicioActivity"
+            android:parentActivityName=".PrincipalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PrincipalActivity" />
+        </activity>
+        <activity android:name=".ActualizarServicioActivity"
             android:parentActivityName=".PrincipalActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
