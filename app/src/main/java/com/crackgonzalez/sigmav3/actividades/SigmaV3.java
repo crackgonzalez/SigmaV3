@@ -1,4 +1,4 @@
-package com.crackgonzalez.sigmav3;
+package com.crackgonzalez.sigmav3.actividades;
 
 import android.app.Application;
 

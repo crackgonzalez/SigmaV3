@@ -55,7 +55,7 @@
                 android:id="@+id/txv_fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="12dp"
+                android:layout_marginRight="10dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="17/08/2018"/>

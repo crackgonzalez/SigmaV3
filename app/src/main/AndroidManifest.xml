@@ -3,7 +3,7 @@
     package="com.crackgonzalez.sigmav3">
 
     <application
-        android:name=".SigmaV3"
+        android:name=".actividades.SigmaV3"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".IniciarSesionActivity"
+            android:name=".actividades.IniciarSesionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,19 +20,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PrincipalActivity" />
+        <activity android:name=".actividades.PrincipalActivity" />
         <activity
-            android:name=".CrearServicioActivity"
-            android:parentActivityName=".PrincipalActivity">
+            android:name=".actividades.CrearServicioActivity"
+            android:parentActivityName=".actividades.PrincipalActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PrincipalActivity" />
+                android:value=".actividades.PrincipalActivity" />
         </activity>
-        <activity android:name=".ActualizarServicioActivity"
-            android:parentActivityName=".PrincipalActivity">
+        <activity android:name=".actividades.ActualizarServicioActivity"
+            android:parentActivityName=".actividades.PrincipalActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PrincipalActivity" />
+                android:value=".actividades.PrincipalActivity" />
         </activity>
     </application>
 
