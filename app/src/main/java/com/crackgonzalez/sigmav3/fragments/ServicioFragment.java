@@ -2,6 +2,7 @@ package com.crackgonzalez.sigmav3.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 
+import com.crackgonzalez.sigmav3.actividades.ActualizarServicioActivity;
+import com.crackgonzalez.sigmav3.actividades.IniciarSesionActivity;
 import com.crackgonzalez.sigmav3.actividades.PrincipalActivity;
 import com.crackgonzalez.sigmav3.R;
 import com.crackgonzalez.sigmav3.modelos.Servicio;
@@ -28,7 +31,7 @@ import com.google.firebase.database.Query;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ServicioFragment extends Fragment {
+public class ServicioFragment extends BaseFragment {
 
     private static final String SERVICIOS = "servicios" ;
     private static final String USUARIOSERVICIOS = "usuario-servicios";
@@ -135,11 +138,13 @@ public class ServicioFragment extends Fragment {
                                                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                                                     @Override
                                                     public void onClick(DialogInterface dialog, int which) {
-
                                                     }
                                                 });
                                         builder.create();
                                         builder.show();
+                                        break;
+                                    case R.id.item_menu_modificar:
+                                        iniciarActividadActualizar(servicioKey);
                                         break;
                                 }
                                 return false;
@@ -166,9 +171,9 @@ public class ServicioFragment extends Fragment {
                 .child(obtenerUid()).orderByChild("fecha").limitToLast(45);
     }
 
-    @NonNull
-    private String obtenerUid() {
-        return FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private void iniciarActividadActualizar(String key){
+        Intent intentActividadActualizar = new Intent(getContext(),ActualizarServicioActivity.class);
+        intentActividadActualizar.putExtra("servicioKey",key);
+        startActivity(intentActividadActualizar);
     }
-
 }

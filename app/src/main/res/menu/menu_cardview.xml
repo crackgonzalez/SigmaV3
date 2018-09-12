@@ -3,5 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item_menu_eliminar"
-        android:title="Eliminar Servicio" />
+        android:title="Eliminar Servicio"
+        android:orderInCategory="101"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/item_menu_modificar"
+        android:title="Modificar Servicio"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
 </menu>

@@ -19,7 +19,6 @@ import java.util.Map;
 
 public class CrearServicioActivity extends BaseActivity implements View.OnClickListener {
 
-    private static final String USUARIOS = "usuarios";
     private static final String USUARIOSERVICIOS = "usuario-servicios";
     private static final String SERVICIOS = "servicios";
 

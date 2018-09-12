@@ -81,6 +81,26 @@ public class BaseActivity extends AppCompatActivity {
         return resultado;
     }
 
+    public String decimalHora(double horaDecimal){
+        String horaString = String.valueOf(horaDecimal);
+        String[] partes = horaString.split("\\.");
+        int hora = Integer.parseInt(partes[0]);
+        int minutos = (int)Math.round((horaDecimal - hora)*60);
+        String resultado = "";
+        if(minutos>=0 &&minutos<=9){
+            resultado = hora +":0"+ minutos;
+        }else{
+            resultado = hora+":"+minutos;
+        }
+        return resultado;
+    }
+
+    public String longFecha(long fechaLong){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        Date date  = new Date(fechaLong);
+        return sdf.format(date);
+    }
+
     public void mostrarTimePickerDialog(boolean focus, final TextView textView){
         Calendar calendar = GregorianCalendar.getInstance();
         int hora = calendar.get(Calendar.HOUR_OF_DAY);
