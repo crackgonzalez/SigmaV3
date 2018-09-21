@@ -59,23 +59,37 @@ public class Servicio {
     }
 
     private double calcularRecargo(){
-        final double T1 = 9.0;
-        final double T2 = 18.0;
-        final double T3 = 0;
-        final double veinticuatro = 24.0;
-        final double seis = 6.0;
         double resultado = 0;
-        if(his !=0 && hts!=0) {
-            if (his < T1 && hts < T2) {
-                resultado = T1 - his;
-            } else if (his < T2 && hts > T2) {
-                resultado = hts - T2;
-            } else if (his < T2 && hts >= T3) {
-                resultado = (hts + veinticuatro) - T2;
-            } else if (his > T2 && hts < T1) {
-                resultado = his - hts - seis;
+        if(his > 18.0 && his < 24.0){
+            //noche
+            if(hts >his && hts < 24.0){
+                resultado = hts - his;
+            }else if(hts>= 0 && hts < 9.0){
+                resultado = 24.0 - his + hts;
+            }
+        }else if(his >= 0 && his < 9.0){
+            //mañana
+            if(hts > his ){
+                if(hts < 9.0){
+                    resultado = hts - his;
+                }else if(hts > 9.0 && hts < 18.0){
+                    resultado = 9.0 - his;
+                }else if(hts > 18.0 && hts < 24.0){
+                    resultado = (9.0 - his) + (hts - 18.0);
+                }
             }
         }
+        else if(his >= 9.0 && his<= 18.0){
+            if(hts>9.0 && hts <= 18.0){
+                resultado = 0;
+            }else if(hts > 18.0 && hts < 24.0){
+                resultado = hts - 18.0;
+            }else if(hts > 0 && hts < 9.0){
+                resultado = 24.0 - 18.0 + hts;
+            }
+
+        }
+
         return Math.round(resultado*100.0)/100.0;
     }
 }

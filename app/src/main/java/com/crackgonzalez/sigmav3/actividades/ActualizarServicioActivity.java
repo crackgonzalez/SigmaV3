@@ -122,7 +122,7 @@ public class ActualizarServicioActivity extends BaseActivity implements View.OnC
             @Override
             public void onSuccess(Void aVoid) {
                 mostrarMensajeToastLargo(getBaseContext(),"El servicio "+ sigla + " fue modificado correctamente");
-                finish();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -137,6 +137,7 @@ public class ActualizarServicioActivity extends BaseActivity implements View.OnC
         int i = v.getId();
         if (i == R.id.btn_modificar_servicio) {
             modificarServicio();
+            finish();
         }
     }
 }

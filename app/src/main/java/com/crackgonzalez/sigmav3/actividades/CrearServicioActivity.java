@@ -79,6 +79,7 @@ public class CrearServicioActivity extends BaseActivity implements View.OnClickL
         int i = v.getId();
         if (i == R.id.btn_agregar_servicio) {
             crearServicio();
+            finish();
         }
     }
 
@@ -105,7 +106,6 @@ public class CrearServicioActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onSuccess(Void aVoid) {
                 mostrarMensajeToastLargo(getBaseContext(),"El servicio "+ sigla + " fue agregado correctamente");
-                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
