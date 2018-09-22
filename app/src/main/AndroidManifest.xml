@@ -35,11 +35,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".actividades.PrincipalActivity" />
         </activity>
-        <activity android:name=".actividades.DetalleServicioActivity"
+        <activity
+            android:name=".actividades.DetalleServicioActivity"
             android:parentActivityName=".actividades.PrincipalActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".actividades.PrincipalActivity" />
+        </activity>
+        <activity android:name=".actividades.CrearVueltaActivity"
+            android:parentActivityName=".actividades.DetalleServicioActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".actividades.DetalleServicioActivity" />
         </activity>
     </application>
 

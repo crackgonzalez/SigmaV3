@@ -32,10 +32,11 @@ import com.google.firebase.database.Query;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.crackgonzalez.sigmav3.clases.Constante.SERVICIOS;
+import static com.crackgonzalez.sigmav3.clases.Constante.USUARIOSERVICIOS;
+
 public class ServicioFragment extends BaseFragment {
 
-    private static final String SERVICIOS = "servicios" ;
-    private static final String USUARIOSERVICIOS = "usuario-servicios";
     private DatabaseReference mDatabase;
 
     private RecyclerView mRecycler;
