@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.crackgonzalez.sigmav3.R;
-import com.crackgonzalez.sigmav3.actividades.BaseActivity;
+import com.crackgonzalez.sigmav3.clases.BaseActivity;
 import com.crackgonzalez.sigmav3.modelos.Servicio;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -17,10 +17,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CrearServicioActivity extends BaseActivity implements View.OnClickListener {
+import static com.crackgonzalez.sigmav3.clases.Constante.SERVICIOS;
+import static com.crackgonzalez.sigmav3.clases.Constante.USUARIOSERVICIOS;
 
-    private static final String USUARIOSERVICIOS = "usuario-servicios";
-    private static final String SERVICIOS = "servicios";
+public class CrearServicioActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mEdtSigla;
     private EditText mEdtHis;

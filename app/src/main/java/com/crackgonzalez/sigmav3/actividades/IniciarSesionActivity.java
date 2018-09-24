@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.crackgonzalez.sigmav3.R;
+import com.crackgonzalez.sigmav3.clases.BaseActivity;
 import com.crackgonzalez.sigmav3.modelos.Usuario;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -23,10 +24,10 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static com.crackgonzalez.sigmav3.clases.Constante.USUARIOS;
+
 public class IniciarSesionActivity extends BaseActivity implements View.OnClickListener {
 
-    private static final String TAG = "IniciarSesionActivity";
-    private static final String USUARIOS = "usuarios";
     private static final int RC_SIGN_IN = 9001;
 
     private FirebaseAuth mAuth;
@@ -85,7 +86,7 @@ public class IniciarSesionActivity extends BaseActivity implements View.OnClickL
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             }catch (ApiException e){
-                Log.w(TAG, "El inicio de sesion con Google ha fallado", e);
+
             }
         }
     }
@@ -110,7 +111,6 @@ public class IniciarSesionActivity extends BaseActivity implements View.OnClickL
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         mostrarProgressDialog();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)

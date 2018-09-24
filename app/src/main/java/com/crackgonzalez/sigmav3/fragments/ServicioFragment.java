@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 
 import com.crackgonzalez.sigmav3.actividades.ActualizarServicioActivity;
+import com.crackgonzalez.sigmav3.actividades.DetalleServicioActivity;
 import com.crackgonzalez.sigmav3.actividades.IniciarSesionActivity;
 import com.crackgonzalez.sigmav3.actividades.PrincipalActivity;
 import com.crackgonzalez.sigmav3.R;
@@ -31,10 +32,11 @@ import com.google.firebase.database.Query;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.crackgonzalez.sigmav3.clases.Constante.SERVICIOS;
+import static com.crackgonzalez.sigmav3.clases.Constante.USUARIOSERVICIOS;
+
 public class ServicioFragment extends BaseFragment {
 
-    private static final String SERVICIOS = "servicios" ;
-    private static final String USUARIOSERVICIOS = "usuario-servicios";
     private DatabaseReference mDatabase;
 
     private RecyclerView mRecycler;
@@ -115,6 +117,13 @@ public class ServicioFragment extends BaseFragment {
                 final String servicioKey = servicioRef.getKey();
                 final String uid = obtenerUid();
 
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        iniciarActividadDetalleServicio(servicioKey);
+                    }
+                });
+
                 holder.bindToServicio(model);
 
                 holder.mImvMenuCardView.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +176,7 @@ public class ServicioFragment extends BaseFragment {
     }
 
     private Query obtenerConsulta(DatabaseReference bd) {
-        return bd.child("usuario-servicios")
+        return bd.child(USUARIOSERVICIOS)
                 .child(obtenerUid()).orderByChild("fecha").limitToLast(45);
     }
 
@@ -175,5 +184,11 @@ public class ServicioFragment extends BaseFragment {
         Intent intentActividadActualizar = new Intent(getContext(),ActualizarServicioActivity.class);
         intentActividadActualizar.putExtra("servicioKey",key);
         startActivity(intentActividadActualizar);
+    }
+
+    private void iniciarActividadDetalleServicio(String key){
+        Intent intentActividadDetalleServicio = new Intent(getContext(),DetalleServicioActivity.class);
+        intentActividadDetalleServicio.putExtra("servicioKey",key);
+        startActivity(intentActividadDetalleServicio);
     }
 }

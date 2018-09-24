@@ -11,4 +11,11 @@
     <string name="fecha">Fecha</string>
     <string name="agregar">Agregar</string>
     <string name="menu_eliminar_cardview">Eliminar Servicio</string>
+    <string name="tren">N° Tren</string>
+    <string name="coche">Coche P/N/R</string>
+    <string name="lugar_inicio">Lugar de Inicio</string>
+    <string name="hora_inicio">Hora de Inicio</string>
+    <string name="radio">Radio Tetra</string>
+    <string name="hora_termino">Hora de Termino</string>
+    <string name="lugar_termino">Lugar de Termino</string>
 </resources>

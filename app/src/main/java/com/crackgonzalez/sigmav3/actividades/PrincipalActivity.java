@@ -14,9 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.crackgonzalez.sigmav3.R;
-import com.crackgonzalez.sigmav3.actividades.BaseActivity;
-import com.crackgonzalez.sigmav3.actividades.CrearServicioActivity;
-import com.crackgonzalez.sigmav3.actividades.IniciarSesionActivity;
+import com.crackgonzalez.sigmav3.clases.BaseActivity;
 import com.crackgonzalez.sigmav3.fragments.ServicioFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
